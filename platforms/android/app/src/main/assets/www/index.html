@@ -1,49 +1,208 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+
+<head>
+
+
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; 
+       media-src *; img-src 'self' data: content:;">-->
+
+  <title>Hotel</title>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+
+  <link rel="stylesheet" href="themes/jquery.mobile.squareui.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+
+  <!-- <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" /> -->
+
+
+  <!-- Include jQuery Mobile stylesheets -->
+
+
+
+
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+</head>
+
+<body>
+  <!-- première page -->
+  <div data-role="page" id="pindex">
+    <div data-role="header">
+      <h1>Relfort</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <div class="ui-bar ui-bar-a"><img class="logo" src="img/logo.png"></div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        <div class="ui-block-b">
+          <div class="ui-bar ui-bar-a">
+            <h1>
+              Bienvenue sur Relfort votre application des restaurants les plus chauds de belfort.
+            </h1>
+          </div>
+        </div>
+      </div>
+      <!-- /grid-a -->
+
+      <ul data-role="listview" data-inset="true">
+        <li><a href="#pchinois">Chinois</a></li>
+        <li><a href="#" id="nbs">Japonais</a></li>
+        <li><a href="#pfav">Mes restos</a></li>
+
+      </ul>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <h4>&copy; Relfort 2019</h4>
+    </div>
+  </div>
+
+
+
+  <!-- pages rooms -->
+
+  <div data-role="page" id="pchinois">
+    <div data-role="header">
+      <a href="#pindex" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+      <h1>Les restos chinois</h1>
+
+    </div>
+    <div role="main" class="ui-content">
+      <p> Cliquez pour voir le détail de chaque resto </p>
+      <ul data-role="listview" data-inset="true">
+
+
+
+        <li>
+          <a href="#pchinois1">
+            <img src="img/chin11.jpeg">
+            <h2>Le Palais de Montbéliard </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper orci ac.</p>
+          </a>
+        </li>
+        <li>
+          <a href="#" id="nbs1">
+            <img src="img/chin.jpeg">
+            <h2>Restaurant Lotus</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper orci ac.</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <h4>&copy; Relfort 2019</h4>
+    </div>
+  </div>
+
+
+  <!-- page resto chinois 1 -->
+
+  <div data-role="page" data-fullscreen="true" id="pchinois1">
+    <div data-role="header" data-position="fixed">
+      <a href="#pindex" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+      <h1>Le palais de Montbéliard</h1> <a href="#pchinois" class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left">retour</a>
+    </div>
+    <div data-role="main" class="ui-content">
+      <p>
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel porttitor ante, cursus fermentum orci. Maecenas purus mauris, blandit eu urna in, venenatis elementum odio. Quisque sollicitudin pulvinar lorem, et pharetra odio mollis sit amet. Nullam
+        posuere sapien at nisl interdum dictum. Nulla eu ultricies est, <br>
+
+        <b>Adresse:</b> 5 rue victor hugo 25200 Montbéliard <br/>
+        <b>Phone:</b> <a href="tel:0381318080">             0381318080</a><br/>
+        <b>Email:</b> <a href="mailto:people@camdenhotel.com">             resto1@mail.com</a>
+      </p>
+
+
+      <img src="img/chin.jpeg" />
+    </div>
+    <div data-role="footer" data-position="fixed">
+
+      <h4>&copy; Relfort 2019</h4>
+    </div>
+  </div>
+
+
+
+  <!--- page ajout restos-->
+  <div data-role="page" id="pajoutresto">
+    <div data-role="header">
+      <a href="#pindex" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+      <h1>Mes restos</h1>
+      <a href="#pfav" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-grid">Mes restos</a>
+    </div>
+    <div role="main" class="ui-content">
+      <p> Veuillez remplir ce formulaire
+        <p>
+
+
+
+          <form id="target">
+            <div class="ui-field-contain" action="">
+              <label for="n">Nom:</label>
+              <input name="n" type="text" id="nom">
+              <label for="ad">Adresse:</label>
+              <input name="ad" type="text" id="adr">
+              <label for="te">Téléphone:</label>
+              <input name="te" type="text" id="tel">
+
+              <br/>
+              <input type="submit" class="ui-btn ui-corner-all" value="valider">
+            </div>
+          </form>
+
+    </div>
+
+
+
+
+    <div data-role="footer" data-position="fixed">
+      <h4>&copy; Relfort 2019</h4>
+    </div>
+  </div>
+
+  <!-- page restos favoris -->
+  <div data-role="page" data-fullscreen="false" id="pfav">
+    <div data-role="header" data-position="fixed">
+      <a href="#pindex" class="ui-btn ui-corner-all ui-shadow 
+  ui-icon-home ui-btn-icon-left">Home</a>
+      <h1>Mes restos</h1>
+    </div>
+    <div data-role="main" class="ui-containt">
+
+      <div id="divtab"></div>
+
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+
+          <li><a href="#pajoutresto" class="ui-btn ui-corner-all ui-shadow 
+  ui-icon-plus ui-btn-icon-left">Ajouter un resto</a></li>
+
+        </ul>
+      </div>
+      <h4>&copy; Relfort 2019</h4>
+    </div>
+  </div>
+
+
+
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAkgAGiTmz1ddFI45A-k-tRywzJ6aJ4Vuc&sensor=true"></script>-->
+  <script type="text/javascript" src="js/index.js"></script>
+</body>
+
 </html>

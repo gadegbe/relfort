@@ -1,0 +1,47 @@
+.logo {
+  width: 100% !important;
+}
+
+html .ui-bar-a,
+html .ui-bar-a .ui-bar-inherit,
+html .ui-body-a .ui-bar-inherit,
+html body .ui-group-theme-a .ui-bar-inherit {
+  background: #fffff0;
+  background-color: #fffff0;
+  border-color: #fffff0;
+  color: #232323;
+}
+
+html .ui-page-theme-a .ui-bar-inherit {
+  background: #fffff0;
+  background-color: #d26437;
+  border-color: #fffff0;
+  color: #fffff0;
+  font-weight: 700;
+}
+
+html .ui-overlay-a,
+html .ui-page-theme-a,
+html .ui-page-theme-a .ui-panel-wrapper {
+  background: #f9f9f9;
+  background-color: #fffff0;
+}
+
+html .ui-page-theme-a .ui-btn,
+html .ui-bar-a .ui-btn,
+html .ui-body-a .ui-btn,
+html body .ui-group-theme-a .ui-btn,
+html body .ui-btn.ui-btn-a,
+html .ui-page-theme-a .ui-btn:visited,
+html .ui-bar-a .ui-btn:visited,
+html .ui-body-a .ui-btn:visited,
+html body .ui-group-theme-a .ui-btn:visited,
+html body .ui-btn.ui-btn-a:visited {
+  background: #ffc850;
+  border: none !important;
+  color: #232323;
+}
+
+.resto-location {
+  background: #d26437 !important;
+}

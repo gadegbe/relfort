@@ -16,31 +16,91 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
+document.addEventListener('deviceready', onDeviceReady, false);
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-    },
+var db = null;
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+function onDeviceReady() {
+  // alert("the device is ready !");
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+  db = window.sqlitePlugin.openDatabase({
+    name: "resto.db",
+    location: 'default'
+  });
 
-        console.log('Received Event: ' + id);
-    }
-};
 
-app.initialize();
+
+  db.transaction(function(tx) {
+    tx.executeSql("CREATE TABLE IF NOT EXISTS res (id integer primary key, nom text, adr text, tel text)");
+
+  }, function(tx, res) {
+    console.log('Populated database OK');
+    //alert("table created");
+  }, function(tx, error) {
+    console.log('Transaction ERROR: ' + error.message);
+  });
+
+
+}
+
+
+
+
+$("#target").submit(function(event) {
+  event.preventDefault();
+  var nom = $("#nom").val();
+  var adr = $("#adr").val();
+  var tel = $("#tel").val();
+
+
+
+
+
+  db.transaction(function(tx) {
+
+    var query = "INSERT INTO res (nom, adr, tel) VALUES (?,?,?)";
+    tx.executeSql(query, [nom, adr, tel], function(tx, res) {
+      alert("le resto est bien enregistré");
+      //alert(" this booking is added date1 "+d1+" date2"+ d2+" nb adults"+ ad+" nb children "+chi);
+    });
+  }, function(tx, error) {
+    alert("An error occured while saving the note");
+  });
+
+
+});
+
+
+$(document).on("pagebeforeshow", "#pfav",
+  function() {
+
+    db.transaction(function(tx) {
+      tx.executeSql('SELECT * FROM res', [], function(tx, results) {
+        var len = results.rows.length,
+          i;
+        $("#divtab").html("<p>  <b>Vous avez enregistré " + len + " restos :</b><br/></p><br/><br/><table id='tab' border=1 align='center' ><tr><th> Id </th> <th>Nom</th> <th>Adresse</th> <th>Téléphone</th></tr>");
+
+
+
+
+        for (i = 0; i < len; i++) {
+          $("#tab").append("<tr><td>" + results.rows.item(i).id + "</td><td>" + results.rows.item(i).nom + "</td><td>" + results.rows.item(i).adr + "</td><td><a href='tel:" + results.rows.item(i).tel + "'>" +
+            results.rows.item(i).tel + "</a></td></tr>");
+        }
+        $("#tab").append("</table>");
+
+      }, function(error) {
+        alert("error");
+      });
+
+    });
+
+  });
+
+$("#nbs").click(function() {
+  alert("lien non disponible");
+})
+
+$("#nbs1").click(function() {
+  alert("lien non disponible");
+})
