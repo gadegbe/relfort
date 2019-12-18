@@ -28,6 +28,16 @@ html .ui-page-theme-a .ui-panel-wrapper {
   background-color: #fffff0;
 }
 
+html .ui-page-theme-b .ui-btn,
+html .ui-bar-b .ui-btn,
+html .ui-body-b .ui-btn,
+html body .ui-group-theme-b .ui-btn,
+html body .ui-btn.ui-btn-b,
+html .ui-page-theme-b .ui-btn:visited,
+html .ui-bar-b .ui-btn:visited,
+html .ui-body-b .ui-btn:visited,
+html body .ui-group-theme-b .ui-btn:visited,
+html body .ui-btn.ui-btn-b:visited,
 html .ui-page-theme-a .ui-btn,
 html .ui-bar-a .ui-btn,
 html .ui-body-a .ui-btn,
@@ -45,4 +55,13 @@ html body .ui-btn.ui-btn-a:visited {
 
 .resto-location {
   background: #d26437 !important;
+}
+
+html .ui-page-theme-b .ui-btn:hover,
+html .ui-bar-b .ui-btn:hover,
+html .ui-body-b .ui-btn:hover,
+html body .ui-group-theme-b .ui-btn:hover,
+html body .ui-btn.ui-btn-b:hover {
+  background: #d26437;
+  color: #fff;
 }
